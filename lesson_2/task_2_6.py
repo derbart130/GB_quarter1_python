@@ -1,20 +1,21 @@
 num = int(input("Enter amount of goods: "))
-n = 1
-features = []
+features = {'title': '', 'price': '', 'quantity': '', 'unit': ''}
+analytics = {'title': [], 'price': [], 'quantity': [], 'unit': []}
 goods = []
-analytics = {}
-while n <= num:
-    print("Enter product features:")
-    features = dict({'title': input("- enter product title: "),
-                  'price': input("- enter product price: "),
-                  'quantity': input('- enter amount of product: '),
-                  'unit': input("- enter unit: ")})
-    goods.append((n, features))
-    analytics = dict({'title': features.get('title'),
-                      'price': features.get('price'),
-                      'quantity': features.get('quantity'),
-                      'unit': features.get('unit')})
-    n += 1
-print(goods)
-print(analytics)
-print(features)
+i = 1
+print(f"Product №1")
+while i <= num:
+    for key in features.keys():
+        feature = input(f"Enter value of product feature: {key} = ")
+        features[key] = int(feature) if key == 'price' or key == 'quantity' else feature
+        analytics[key].append((features[key]))
+    goods.append((i, features))
+    i += 1
+    if i <= num:
+        print(f"Product №{i}")
+    else:
+        break
+print(f"\nList of goods:\n{goods}")
+print(f"\nCurrent analytics:\n{'*' * 100}")
+for key, value in analytics.items():
+    print(f"{key[:25]:>30}, {value}")

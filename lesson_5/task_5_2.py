@@ -7,10 +7,8 @@ my_list = ['Nemo enim ipsam voluptatem\n',
 with open("test_2.txt", 'w+', encoding="utf-8") as file_obj:
     file_obj.writelines(my_list)
 with open("test_2.txt") as file_obj:
-    lines = 0
-    words = 0
-    for line in file_obj:
-        lines += line.count("\n")
-        words = len(line.split())
-        print(f"{words} words in line {lines}")
-    print(f"\nNumber of lines = {lines}")
+    my_line = file_obj.readlines()
+    for line, words in enumerate(my_line, 1):
+        num_of_words = len(words.split())
+        print(f"{num_of_words} words in line {line}")
+    print(f"\nNumber of lines = {line}")

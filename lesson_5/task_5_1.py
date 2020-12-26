@@ -1,12 +1,8 @@
-my_list = []
-while True:
-    string = input("Enter anything: ")
-    if string == '':
-        print(my_list)
-        exit()
-    else:
-        newline = string + '\n'
-        my_list.append(newline)
+with open("test_1.txt", "w", encoding='utf-8') as file_1:
+    while True:
+        string = input("Enter anything or empty string for exit: ")
+        if string == '':
+            break
+        print(string, file = file_1)
 
-    with open("test_1.txt", "w") as file_obj:
-        file_obj.writelines(my_list)
+

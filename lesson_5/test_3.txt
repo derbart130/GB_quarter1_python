@@ -1,0 +1,5 @@
+John Smith:21300
+Ivan Drago:17600
+Rokky Balboa:64700
+John Nollan:35400
+Gregory House:13550
